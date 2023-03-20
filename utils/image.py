@@ -26,6 +26,7 @@ def image_normalization(img, img_min=0, img_max=255,
     return img
 
 def count_parameters(model=None):
+  #模型参数量统计
     if model is not None:
       #https://blog.csdn.net/qq_42775938/article/details/125849362
       #requires_grad，grad_fn，grad的含义及使用
