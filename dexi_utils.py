@@ -4,7 +4,9 @@ import torch
 
 
 def image_normalization(img, img_min=0, img_max=255):
-    """This is a typical image normalization function
+    """
+    图像归一化到[img_min, img_max]
+    This is a typical image normalization function
     where the minimum and maximum of the image is needed
     source: https://en.wikipedia.org/wiki/Normalization_(image_processing)
     :param img: an image could be gray scale or color
