@@ -27,6 +27,8 @@ def image_normalization(img, img_min=0, img_max=255,
 
 def count_parameters(model=None):
     if model is not None:
+      #https://blog.csdn.net/qq_42775938/article/details/125849362
+      #requires_grad，grad_fn，grad的含义及使用
         return sum(p.numel() for p in model.parameters() if p.requires_grad)
     else:
         print("Error counting model parameters line 32 img_processing.py")
