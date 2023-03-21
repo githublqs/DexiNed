@@ -165,6 +165,7 @@ class DexiNed(nn.Module):
         super(DexiNed, self).__init__()
         #通道数从3=>64,宽高变为原来的一半,按照公式输入宽高必须是偶数
         self.block_1 = DoubleConvBlock(3, 32, 64, stride=2,)
+        #宽高不变,通道数从64变为128
         self.block_2 = DoubleConvBlock(64, 128, use_act=False)
         self.dblock_3 = _DenseBlock(2, 128, 256) # [128,256,100,100]
         self.dblock_4 = _DenseBlock(3, 256, 512)
