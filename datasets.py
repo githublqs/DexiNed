@@ -483,7 +483,8 @@ class BipedDataset(Dataset):
         #
         # gt = gt.astype('float32')
         # ----------------------------------
-
+        #img.transpose((2, 0, 1)：从 opencv 的 H×W×C 格式转换为 Tensor 的 C×H×W 格式。
+        #img[:, :, ::-1]：把BGR转换为RGB，把RGB转换为BGR。
         img = img.transpose((2, 0, 1))
         img = torch.from_numpy(img.copy()).float()
         gt = torch.from_numpy(np.array([gt])).float()
