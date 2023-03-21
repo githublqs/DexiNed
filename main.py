@@ -422,7 +422,14 @@ def main(args):
     lr2= args.lr
     for epoch in range(ini_epoch,args.epochs):
         if epoch%7==0:
+            '''
+            设置 CPU 生成随机数的 种子 ，方便下次复现实验结果。
 
+为 CPU 设置 种子 用于生成随机数，以使得结果是确定的。
+
+当你设置一个随机种子时，接下来的随机算法生成数根据当前的随机种子按照一定规律生成。
+随机种子作用域是在设置时到下一次设置时。要想重复实验结果，设置同样随机种子即可。
+            '''
             seed = seed+1000
             np.random.seed(seed)
             torch.manual_seed(seed)
