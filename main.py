@@ -37,6 +37,11 @@ def train_one_epoch(epoch, dataloader, model, criterion, optimizer, device,
         # loss = sum([criterion(preds, labels, l_w, device) for preds, l_w in zip(preds_list, l_weight)])  # cats_loss
         loss = sum([criterion(preds, labels,l_w) for preds, l_w in zip(preds_list,l_weight)]) # bdcn_loss
         # loss = sum([criterion(preds, labels) for preds in preds_list])  #HED loss, rcf_loss
+        '''
+        optimizer.zero_grad() 清空过往梯度；
+loss.backward() 反向传播，计算当前梯度；
+optimizer.step() 根据梯度更新网络参数
+        '''
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
